@@ -1,4 +1,4 @@
-CKAN and all services running in one Docker Container
+# CKAN Installation:  all services running in one Docker Container aka: a VM replacement
 
 
 * [1. Overview](#1-overview)
@@ -6,7 +6,7 @@ CKAN and all services running in one Docker Container
 
 
 
-## 1.  Overview
+## 1. Overview
 
 This is designed as a replacement to using a Virtual Machine (or physical machine) to install a CKAN environment. I personally used to use [VirtualBox](https://www.virtualbox.org) to run 
 Ubuntu Virtual Machines on my Mac OS host but Iv'e been experiencing more and more problems in getting these VM's running. This is a replacement environment for products like VitualBox and VMWare.
@@ -23,7 +23,7 @@ For this repo the following versions were used:
 
 There is no reason why other versions could be used. It should be very straightforward to replace any of these versions with another
 
-## 2.  Building and Running the Docker Container
+## 2. Building and Running the Docker Container
 
 There are 3 files in this repo:
 
