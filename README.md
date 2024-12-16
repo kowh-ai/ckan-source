@@ -1,4 +1,4 @@
-# Docker setup for CKAN and all services running in one Docker Container
+CKAN and all services running in one Docker Container
 
 
 * [1. Overview](#1-overview)
