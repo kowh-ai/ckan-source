@@ -129,7 +129,7 @@ The script is typically used as an entrypoint for a Docker container, automating
 * from VS Code run "attach to a Dev Container"
 * a new window now starts within the local VS Code IDE 
 * this will install Development tools on the running ckan-source container and will make it a Dev Container
-* if you run a ps auxww command on the container you will see a a series of VS Code IDE processes running
+* if you run a `ps auxww` command on the container you will see a a series of VS Code IDE processes running
 * these process are the "server" processe
 * your local VS Code IDE will run the dev container (client) that talks to the dev container (server) running within the ckan-source container
 * you can now make changes to code from your local VS Code IDE that makes changes in code running on the container
