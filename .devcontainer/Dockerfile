@@ -30,10 +30,13 @@ RUN apt-get update && apt-get install -y \
     git \
     sudo \
     lsof \
+    htop \
     && apt-get clean
 
 # Set the working directory
 WORKDIR /srv/app
+
+VOLUME /srv/app
 
 RUN sudo mkdir -p /usr/lib/ckan/default && \
     sudo chown `whoami` /usr/lib/ckan/default && \
@@ -88,7 +91,7 @@ RUN wget -O solr-$SOLR_VERSION.tgz https://www.apache.org/dyn/closer.lua/solr/so
 # Set permissions
 RUN mkdir -p /opt/solr && chown -R $SOLR_USER:$SOLR_GROUP /opt/solr
 
-COPY start_all_processes.sh /srv/app/start_all_processes.sh
+COPY ./start_all_processes.sh /srv/app/start_all_processes.sh
 RUN chmod +x /srv/app/start_all_processes.sh 
 
 # Expose the ports

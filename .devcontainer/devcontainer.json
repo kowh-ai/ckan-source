@@ -1,0 +1,27 @@
+{
+    "name": "CKAN Dev Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "args": {
+            "CKAN_VERSION": "2.11.1",
+            "XLOADER_VERSION": "2.0.0"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "editor.formatOnSave": true
+            },
+            "extensions": [
+                "ms-python.python",
+                "esbenp.prettier-vscode",
+                "ms-azuretools.vscode-docker"
+            ],
+            "forwardPorts": [5000, 6379, 5432, 8983, 8800],
+            "postCreateCommand": ". /usr/lib/ckan/default/bin/activate && pip install -r /usr/lib/ckan/default/src/ckan/requirements-dev.txt",
+            "remoteUser": "root"
+        }
+    }
+}

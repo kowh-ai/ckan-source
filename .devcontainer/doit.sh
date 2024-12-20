@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # Set the CKAN version
 CKAN_VERSION=2.11.1
