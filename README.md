@@ -124,3 +124,8 @@ The Dockerfile is designed to create a comprehensive CKAN installation with all 
 
 The script is typically used as an entrypoint for a Docker container, automating the entire setup and startup process for a CKAN instance with various extensions and services pre-configured.
 
+## 3. Using the running ckan-source container as a dev container
+* run the container
+* from VS Code run "attach to a Dev Container"
+* this will install Development tools on the running ckan-source container and will make it a Dev Container
+* 
