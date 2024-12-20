@@ -55,7 +55,7 @@ ckan -c $CKAN_INI jobs worker &
 
 # Start the CKAN server
 echo "Starting the CKAN server..."
-ckan -c $CKAN_INI run --host 0.0.0.0 --port 5000
+ckan -c $CKAN_INI run --host 0.0.0.0 --port 5000 -r
 
 # hang around for a while
 while true; do sleep 2000; done
