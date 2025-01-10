@@ -48,6 +48,14 @@ sudo -u postgres psql -c "CREATE USER datastore_default WITH PASSWORD 'pass';"
 sudo -u postgres psql -c "CREATE DATABASE datastore_default WITH OWNER datastore_default;"
 ckan -c $CKAN_INI datastore set-permissions | sudo -u postgres psql --set ON_ERROR_STOP=1
 
+# echo "Do the beaker token stuff..."
+echo "Setting beaker.session.secret in ini file"
+ckan config-tool $CKAN_INI "beaker.session.secret=$(python3 -c 'import secrets; print(secrets.token_urlsafe())')"
+ckan config-tool $CKAN_INI "WTF_CSRF_SECRET_KEY=$(python3 -c 'import secrets; print(secrets.token_urlsafe())')"
+JWT_SECRET=$(python3 -c 'import secrets; print("string:" + secrets.token_urlsafe())')
+ckan config-tool $CKAN_INI "api_token.jwt.encode.secret=${JWT_SECRET}"
+ckan config-tool $CKAN_INI "api_token.jwt.decode.secret=${JWT_SECRET}"
+
 # echo "Complete configuration and start the XLOADER service..."
 ckan config-tool $CKAN_INI "ckan.xloader.api_token=$(ckan -c $CKAN_INI user token add ckan_admin xloader | tail -n 1 | tr -d '\t')"
 ckan config-tool $CKAN_INI "ckan.plugins = image_view text_view datatables_view datastore xloader"

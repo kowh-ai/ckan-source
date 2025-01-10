@@ -12,6 +12,19 @@ if [ -n "$CONTAINER_RUNNING" ]; then
     docker rm ckan-source || { echo "Failed to remove ckan-source"; exit 1; }
 fi
 
+# Remove the existing Docker volumes if there are any
+CKAN_VOLUME_EXISTS=$(docker volume ls -q -f name=ckan_storage)
+if [ -n "$CKAN_VOLUME_EXISTS" ]; then
+    echo "Removing the existing ckan_storage volume..."
+    docker volume rm ckan_storage || { echo "Failed to remove ckan_storage"; exit 1; }
+fi
+PG_VOLUME_EXISTS=$(docker volume ls -q -f name=pg_data)
+if [ -n "$PG_VOLUME_EXISTS" ]; then
+    echo "Removing the existing pg_data volume..."
+    docker volume rm pg_data || { echo "Failed to remove pg_data"; exit 1; }
+fi
+
+
 # Build the Docker container
 echo "Building the ckan-source container..."
 docker build  --build-arg CKAN_VERSION=${CKAN_VERSION} --build-arg XLOADER_VERSION=${XLOADER_VERSION} \
