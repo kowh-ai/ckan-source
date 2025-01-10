@@ -20,6 +20,7 @@ For this repo the following versions were used:
 * PostgreSQL  **14**
 * Solr        **9.7.0**
 * JRE         **11**
+* XLoader         **2.0.0**
 
 There is no reason why other versions could be used. It should be very straightforward to replace any of these versions with another
 
