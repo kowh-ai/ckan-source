@@ -39,6 +39,7 @@ docker volume create ckan_storage || { echo "Failed to create ckan-storage volum
 docker volume create pg_data || { echo "Failed to create pg_storage volume"; exit 1; }
 docker run -d -p 8983:8983 -p 5000:5000 --name ckan-source \
                 -v ckan_storage:/var/lib/ckan \
+                -v ckan_code:/usr/lib/ckan \
                 -v pg_data:/var/lib/postgresql \
                 ckan-source \
                 || { echo "Failed to run ckan-source container"; exit 1; }

@@ -10,8 +10,6 @@ ENV CKAN_GIT_URL=https://github.com/ckan/ckan.git
 ENV XLOADER_GIT_URL https://github.com/ckan/ckanext-xloader.git
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Set the working directory
-WORKDIR /srv/app
 
 # Install libraries and software
 RUN apt-get update && apt-get install -y \

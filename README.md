@@ -126,7 +126,7 @@ The script is typically used as an entrypoint for a Docker container, automating
 
 ## 3. Using the running ckan-source container as a dev container
 * run the ckan-source container
-* from VS Code run "attach to a Dev Container"
+* from VS Code run "attach to a Dev Container" using the Command Palette (bottom left, Manage icon shaped like an 8-sided cog)
 * a new window now starts within the local VS Code IDE 
 * this will install Development tools on the running ckan-source container and will make it a Dev Container
 * if you run a `ps auxww` command on the container you will see a a series of VS Code IDE processes running
