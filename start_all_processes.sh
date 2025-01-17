@@ -57,7 +57,7 @@ ckan config-tool $CKAN_INI "api_token.jwt.encode.secret=${JWT_SECRET}"
 ckan config-tool $CKAN_INI "api_token.jwt.decode.secret=${JWT_SECRET}"
 
 # echo "Complete configuration and start the XLOADER service..."
-ckan config-tool $CKAN_INI "ckan.xloader.api_token=$(ckan -c $CKAN_INI user token add ckan_admin xloader | tail -n 1 | tr -d '\t')"
+ckan config-tool $CKAN_INI "ckanext.xloader.api_token=$(ckan -c $CKAN_INI user token add ckan_admin xloader | tail -n 1 | tr -d '\t')"
 ckan config-tool $CKAN_INI "ckanext.xloader.site_url=http://ckan-dev:5000"
 ckan config-tool $CKAN_INI "ckan.plugins = image_view text_view datatables_view datastore xloader"
 ckan -c $CKAN_INI jobs worker &
