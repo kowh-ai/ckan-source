@@ -7,7 +7,7 @@ ARG XLOADER_VERSION
 ENV CKAN_TAG="ckan-${CKAN_VERSION}"
 ENV XLOADER_VERSION=${XLOADER_VERSION}
 ENV CKAN_GIT_URL=https://github.com/ckan/ckan.git
-ENV XLOADER_GIT_URL https://github.com/ckan/ckanext-xloader.git
+ENV XLOADER_GIT_URL https://github.com/kowh-ai/ckanext-xloader.git
 ENV DEBIAN_FRONTEND=noninteractive
 
 
