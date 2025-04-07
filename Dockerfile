@@ -10,7 +10,6 @@ ENV CKAN_GIT_URL=https://github.com/ckan/ckan.git
 ENV XLOADER_GIT_URL https://github.com/kowh-ai/ckanext-xloader.git
 ENV DEBIAN_FRONTEND=noninteractive
 
-
 # Install libraries and software
 RUN apt-get update && apt-get install -y \
     systemd \
@@ -42,6 +41,8 @@ RUN pip install --upgrade pip
 # Install CKAN
 RUN . /usr/lib/ckan/default/bin/activate && \
     cd /usr/lib/ckan/default && \
+    # Upgrade setuptools and wheel
+    pip install --upgrade setuptools wheel && \
     pip install -e git+${CKAN_GIT_URL}@${CKAN_TAG}#egg=ckan && \
     cd src/ckan/ && \
     pip install --no-binary markdown -r requirements.txt

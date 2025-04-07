@@ -1,8 +1,8 @@
 #!/bin/bash -x
 
 # Set the CKAN version
-CKAN_VERSION=2.11.1
-XLOADER_VERSION=2.0.0
+CKAN_VERSION=2.11.2
+XLOADER_VERSION=2.1.0
 
 # Stop and remove the existing Docker container if there is one runnin at all
 CONTAINER_RUNNING=$(docker ps -a -q -f name=ckan-source)
